@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Analytics Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f4f6fc}
+.container{display:flex;height:100vh}
+.sidebar{width:220px;background:#1e3a8a;color:#fff;padding:20px}
+.sidebar h2{margin-bottom:20px}
+.sidebar li{list-style:none;padding:12px;cursor:pointer;border-radius:8px}
+.sidebar li:hover{background:#2563eb}
+.main{flex:1;padding:20px}
+input{width:300px;padding:10px;border:1px solid #ddd;border-radius:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:20px}
+.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.card h3{color:#666}
+.card h1{color:#2563eb}
+.section{display:none}
+.active{display:block}
+table{width:100%;margin-top:20px;border-collapse:collapse;background:#fff}
+th,td{padding:12px;border:1px solid #ddd;text-align:left}
+th{background:#2563eb;color:white}
+.progress{width:100%;height:14px;background:#ddd;border-radius:20px;margin:10px 0}
+.progress span{display:block;height:100%;background:#2563eb;border-radius:20px}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+<h2>📊 Dashboard</h2>
+<ul>
+<li onclick="show('dashboard')">🏠 Dashboard</li>
+<li onclick="show('users')">👥 Users</li>
+<li onclick="show('sales')">💰 Sales</li>
+<li onclick="show('reports')">📄 Reports</li>
+</ul>
+</div>
+
+<div class="main">
+
+<input type="text" id="search" placeholder="Search Dashboard, Users, Sales, Reports" onkeyup="findSection()">
+
+<div id="dashboard" class="section active">
+
+<div class="cards">
+
+<div class="card">
+<h3>Revenue</h3>
+<h1>₹12,45,000</h1>
+</div>
+
+<div class="card">
+<h3>Users</h3>
+<h1>14,250</h1>
+</div>
+
+<div class="card">
+<h3>Sales</h3>
+<h1>3,540</h1>
+</div>
+
+<div class="card">
+<h3>Reports</h3>
+<h1>145</h1>
+</div>
+
+</div>
+
+<div class="card" style="margin-top:20px">
+<h3>Performance</h3>
+Revenue<div class="progress"><span style="width:90%"></span></div>
+Sales<div class="progress"><span style="width:80%"></span></div>
+Users<div class="progress"><span style="width:85%"></span></div>
+</div>
+
+</div>
+
+<div id="users" class="section">
+<table>
+<tr><th>ID</th><th>Name</th><th>Email</th></tr>
+<tr><td>1001</td><td>Rahul</td><td>rahul@gmail.com</td></tr>
+<tr><td>1002</td><td>Priya</td><td>priya@gmail.com</td></tr>
+<tr><td>1003</td><td>Ajay</td><td>ajay@gmail.com</td></tr>
+<tr><td>1004</td><td>Sneha</td><td>sneha@gmail.com</td></tr>
+</table>
+</div>
+
+<div id="sales" class="section">
+<table>
+<tr><th>Date</th><th>Product</th><th>Revenue</th></tr>
+<tr><td>10-Oct</td><td>Laptop</td><td>₹22,50,000</td></tr>
+<tr><td>12-Oct</td><td>Mobile</td><td>₹16,00,000</td></tr>
+<tr><td>14-Oct</td><td>Tablet</td><td>₹4,50,000</td></tr>
+<tr><td>18-Oct</td><td>Watch</td><td>₹3,25,000</td></tr>
+</table>
+</div>
+
+<div id="reports" class="section">
+<table>
+<tr><th>Report</th><th>Date</th><th>Status</th></tr>
+<tr><td>Sales Report</td><td>01-Oct</td><td>Completed</td></tr>
+<tr><td>User Report</td><td>05-Oct</td><td>Completed</td></tr>
+<tr><td>Revenue Report</td><td>10-Oct</td><td>Completed</td></tr>
+<tr><td>Inventory Report</td><td>15-Oct</td><td>Completed</td></tr>
+</table>
+</div>
+
+</div>
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function findSection(){
+let t=document.getElementById('search').value.toLowerCase();
+if(t.includes('dashboard'))show('dashboard');
+if(t.includes('user'))show('users');
+if(t.includes('sale'))show('sales');
+if(t.includes('report'))show('reports');
+}
+</script>
+
+</body>
+</html>

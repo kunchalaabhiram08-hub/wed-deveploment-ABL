@@ -1,0 +1,96 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Daily News</title>
+<style>
+body{font-family:Arial;margin:0;background:#eee}
+header{background:#172554;color:white;padding:20px;text-align:center}
+nav{background:#dc2626;padding:15px;text-align:center}
+nav button{background:white;color:#dc2626;border:0;padding:10px;
+margin:5px;border-radius:5px;cursor:pointer;font-weight:bold}
+nav button:hover{background:#172554;color:white}
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;padding:20px}
+.card{background:white;padding:15px;border-radius:8px}
+.card img{width:100%;height:170px;object-fit:cover;border-radius:6px}
+h2{color:#dc2626}
+footer{text-align:center;padding:15px;background:#172554;color:white}
+</style>
+</head>
+<body>
+
+<header>
+<h1>📰 DAILY NEWS</h1>
+<p>Your World, Your News</p>
+</header>
+
+<nav>
+<button onclick="showNews('all')">Home</button>
+<button onclick="showNews('national')">National</button>
+<button onclick="showNews('world')">International</button>
+<button onclick="showNews('sports')">Sports</button>
+<button onclick="showNews('tech')">Technology</button>
+<button onclick="showNews('business')">Business</button>
+</nav>
+
+<div class="container">
+
+<div class="card national">
+<h2>National News</h2>
+<img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600">
+<h3>Latest India Updates</h3>
+<p>Author: Rahul | Today's headlines.</p>
+</div>
+
+<div class="card world">
+<h2>International News</h2>
+<img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600">
+<h3>Global News Updates</h3>
+<p>Author: Priya | World events.</p>
+</div>
+
+<div class="card sports">
+<h2>Sports News</h2>
+<img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600">
+<h3>Latest Sports News</h3>
+<p>Author: Arjun | Match updates.</p>
+</div>
+
+<div class="card tech">
+<h2>Technology News</h2>
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600">
+<h3>New AI Innovations</h3>
+<p>Author: Ravi | Tech updates.</p>
+</div>
+
+<div class="card business">
+<h2>Business News</h2>
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600">
+<h3>Market News</h3>
+<p>Author: Sneha | Business updates.</p>
+</div>
+
+</div>
+
+<footer>© 2026 Daily News</footer>
+
+<script>
+function showNews(category){
+let cards=document.querySelectorAll('.card');
+
+cards.forEach(card=>{
+if(category==='all' || card.classList.contains(category)){
+card.style.display='block';
+}
+else{
+card.style.display='none';
+}
+});
+}
+</script>
+
+</body>
+</html>
+
